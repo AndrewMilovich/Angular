@@ -1,0 +1,14 @@
+div{
+  padding: 10px;
+  height: 270px;
+  margin: 10px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: silver;
+}
