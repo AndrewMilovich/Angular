@@ -1,6 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {PostInterface} from "../models/post.interface";
+import {PostInterface} from "../../models/post.interface";
 import {Observable} from "rxjs";
 
 @Injectable({

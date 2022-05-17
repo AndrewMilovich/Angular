@@ -1,0 +1,5 @@
+<div class="post">
+  <h4>{{post.id}} </h4>
+  <h4>title:{{post.title}} </h4>
+  <a [routerLink]="['post-detail',post.id]" [state]="{data:post}" ><button >details post {{post.id}}</button></a>
+</div>
