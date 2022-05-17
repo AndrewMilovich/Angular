@@ -1,5 +1,7 @@
-div{
+.comments
+{
   display: flex;
   column-gap: 10px;
   flex-wrap: wrap;
+  width: 70%;
 }

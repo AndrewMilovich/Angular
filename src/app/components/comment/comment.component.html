@@ -1,6 +1,5 @@
-<div>
+<div >
   <h4>{{comment.id}}</h4>
   <h4>{{comment.name}}</h4>
-  <p>{{comment.email}}</p>
-  <p>{{comment.body}}</p>
+  <button [routerLink]="['comments-detail',comment.id]" [state]="{data:comment}">Details</button>
 </div>

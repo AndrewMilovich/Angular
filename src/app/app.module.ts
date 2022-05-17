@@ -13,17 +13,21 @@ import {RouterModule, Routes} from "@angular/router";
 import {HomepageComponent} from './components/homepage/homepage.component';
 import {UserDetailComponent} from './components/user-detail/user-detail.component';
 import {PostDetailComponent} from './components/post-detail/post-detail.component';
+import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'home-page', pathMatch: 'full'},
   {path: 'homepage', component: HomepageComponent},
   {
     path: 'posts', component: PostsComponent,
     children:
       [{
-        path: 'post-detail/:id', component: PostDetailComponent
+        path: 'post-detail/:id', component: PostDetailComponent,
       }]
   },
-  {path: 'comments', component: CommentsComponent},
+  {path: 'comments', component: CommentsComponent, children:[{
+    path:'comments-detail/:id', component: CommentDetailComponent
+    }]},
   {
     path: 'users', component: UsersComponent,
     children:
@@ -42,7 +46,8 @@ const routes: Routes = [
     CommentComponent,
     HomepageComponent,
     UserDetailComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    CommentDetailComponent
   ],
   imports: [
     BrowserModule,

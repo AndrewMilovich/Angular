@@ -1,4 +1,7 @@
 <h1>Comments</h1>
-<div>
-  <app-comment *ngFor="let c of comments " [comment]="c"></app-comment>
+<div style="display: flex">
+  <div class="comments">
+    <app-comment *ngFor="let c of comments " [comment]="c"></app-comment>
+  </div>
+  <router-outlet></router-outlet>
 </div>
