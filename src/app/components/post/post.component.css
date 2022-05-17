@@ -1,8 +1,8 @@
-div{
+.post{
   padding: 10px;
-  height: 240px;
+  height: 200px;
   margin: 10px;
-  width: 250px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   align-content: center;

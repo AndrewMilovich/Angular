@@ -1,3 +1,10 @@
-<div>
-  <app-post *ngFor="let p of posts" [post]="p"></app-post>
+<h2>Posts</h2>
+<div style="display: flex;
+    justify-content: space-between;">
+  <div class="posts">
+    <app-post *ngFor="let p of posts" [post]="p"></app-post>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

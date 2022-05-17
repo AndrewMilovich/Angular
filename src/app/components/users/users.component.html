@@ -1,1 +1,11 @@
-<app-user *ngFor="let u of users"[user]="u"></app-user>
+<h1>Users</h1>
+<div style="display: flex;
+    justify-content: space-around;">
+  <div style="width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;">
+    <app-user *ngFor="let u of users" [user]="u"></app-user>
+  </div>
+    <router-outlet></router-outlet>
+</div>
