@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {UserInterface} from "../../models/user.interface";
+import {IUserDetail} from "../../models/user-detail.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class UserService {
       .get<UserInterface[]>(this.url)
   }
 
-  getUser(id: number): Observable<UserInterface> {
+  getUser(id: string): Observable<IUserDetail> {
     return this.http
-      .get<UserInterface>(this.url + '/' + id)
+      .get<IUserDetail>(this.url + '/' + id)
   }
 }

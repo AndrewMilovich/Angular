@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+
 import {CommentsInterface} from "../../models/comments.interface";
 import {CommentService} from "../comment-service/comment.service";
 
@@ -12,12 +13,11 @@ export class CommentDetailComponent implements OnInit {
 
   commentDetails: CommentsInterface
 
-  constructor(private activatedRouted: ActivatedRoute, private commentService: CommentService) {
+  constructor(private activatedRouted: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.activatedRouted.params.subscribe(value =>
-      this.commentDetails = history.state.data)
-  }
+    this.activatedRouted.data.subscribe(({commentDetail}) => this.commentDetails = commentDetail)
 
+  }
 }

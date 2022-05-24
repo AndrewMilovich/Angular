@@ -7,6 +7,9 @@ import {CommentsComponent} from "./comments/comments.component";
 import {HttpClientModule} from "@angular/common/http";
 import {CommentDetailComponent} from "./comment-detail/comment-detail.component";
 import {CommentService} from "./comment-service/comment.service";
+import {CommentsResolver} from "./comment-service/resolvers/comments.resolver";
+import {CommentDetailsResolver} from "./comment-service/resolvers/comment-details.resolver";
+import {ActivatorGuard} from "./comment-service/activator.guard";
 
 
 @NgModule({
@@ -20,7 +23,12 @@ import {CommentService} from "./comment-service/comment.service";
     CommentsRoutingModule,
     HttpClientModule
   ],
-  providers: [CommentService]
+  providers: [
+    CommentService,
+    CommentsResolver,
+    CommentDetailsResolver,
+    ActivatorGuard
+  ]
 })
 export class CommentsModule {
 }
