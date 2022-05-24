@@ -1,21 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 
 import {HomepageComponent} from "../components/homepage/homepage.component";
 
-let routes:Routes=[
+let routes: Routes = [
   {
-    path:'homepage',component:HomepageComponent
+    path: '',
+    loadChildren: () => import('../components/layouts/main-layout/main-layout.module').then(m => m.MainLayoutModule)
   },
   {
-    path:'users',loadChildren:()=> import('../users/users.module').then(m=>m.UsersModule)
+    path: 'homepage', component: HomepageComponent
   },
   {
-    path:'posts',loadChildren:()=> import('../posts/posts.module').then(m=>m.PostsModule)
+    path: 'users', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)
   },
   {
-    path:'comments',loadChildren:()=> import('../comments/comments.module').then(m=>m.CommentsModule)
+    path: 'posts', loadChildren: () => import('../posts/posts.module').then(m => m.PostsModule)
+  },
+  {
+    path: 'comments', loadChildren: () => import('../comments/comments.module').then(m => m.CommentsModule)
   }
 
 ]
@@ -26,8 +30,9 @@ let routes:Routes=[
     RouterModule.forRoot(routes),
     CommonModule
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
