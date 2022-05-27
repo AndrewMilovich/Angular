@@ -1,0 +1,25 @@
+<div class="form-container">
+  <div class="form-title">
+    Sign Up
+  </div>
+
+  <form [formGroup]="form">
+    <div>
+      <label>username:</label>
+      <input type="text" formControlName="username">
+    </div>
+    <div *ngIf="formUserNameError" class="error">{{formUserNameError}}</div>
+    <div>
+      <label>password:</label>
+      <input type="text" formControlName="password">
+    </div>
+    <div>
+      <label>confirm password:</label>
+      <input type="text" formControlName="confirmPassword">
+    </div>
+    <div *ngIf="form.errors" class="error">
+      {{form.errors['different']}}
+    </div>
+    <button [disabled]="form.invalid" (click)="register()">Register</button>
+  </form>
+</div>

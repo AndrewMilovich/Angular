@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+  <div><label>username: <input type="text" formControlName="username"></label></div>
+  <div><label>password: <input type="text" formControlName="password"></label></div>
+  <div>
+    <button (click)="login()">Login</button>
+  </div>
+  <div>
+    <button><a routerLink="register">registration</a></button>
+  </div>
+</form>
