@@ -3,27 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import { UsersComponent } from './components/users/users.component';
-import { UserComponent } from './components/user/user.component';
-import { PostsComponent } from './components/posts/posts/posts.component';
-import { PostComponent } from './components/post/post.component';
-import { CommentsComponent } from './components/comments/comments.component';
-import { CommentComponent } from './components/comment/comment.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserComponent,
-    PostsComponent,
-    PostComponent,
-    CommentsComponent,
-    CommentComponent
+    MovieListComponent,
+    HeaderComponent,
+    LayoutComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
