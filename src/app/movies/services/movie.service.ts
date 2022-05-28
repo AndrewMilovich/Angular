@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {IMovie} from "../models/movies";
-import {urls} from "../constants";
+import {IMovie} from "../../interfaces/movies";
+import {urls} from "../../constants";
 import {Observable} from "rxjs";
 
 @Injectable({

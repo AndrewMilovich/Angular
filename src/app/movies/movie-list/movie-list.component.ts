@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MovieService} from "../../services/movie.service";
-import {IMovie, IResults} from "../../models/movies";
+import {MovieService} from "../services/movie.service";
+import {IMovie, IResults} from "../../interfaces/movies";
+import {urls} from "../../constants";
 
 @Component({
   selector: 'app-movie-list',
@@ -9,15 +10,17 @@ import {IMovie, IResults} from "../../models/movies";
 })
 export class MovieListComponent implements OnInit {
   movieList: IMovie[] | IMovie | any
-results:IResults[]
+  results: IResults[]
+  urls: string;
+
   constructor(private movieService: MovieService) {
   }
 
   ngOnInit(): void {
     this.movieService.getAllFilms().subscribe((value) => {
       this.movieList = value;
-      console.log(this.movieList.results);
       this.results = this.movieList.results
     })
+    this.urls=urls.image
   }
 }

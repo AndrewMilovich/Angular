@@ -1,0 +1,38 @@
+.filmBox {
+  width: 168px;
+  height: 302px;
+  box-sizing: border-box;
+  line-height: 7px;
+  padding: 5px;
+  margin: 10px;
+
+}
+.titleFilm{
+  width: 167px;
+  height: 20px;
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+.imageBox {
+  height: 250px;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.36));
+  border-radius: 7px;
+}
+.filmList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.date{
+  width: 60px;
+  height: 11px;
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ddee1d;
+}

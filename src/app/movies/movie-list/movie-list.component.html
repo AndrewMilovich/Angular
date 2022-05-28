@@ -1,0 +1,12 @@
+<div class="filmList">
+  <div *ngFor="let result of results">
+    <div class="filmBox">
+      <img class="imageBox" src="{{urls}}{{result.poster_path}}">
+      <div>
+        <p class="titleFilm">{{result.original_title}}</p>
+        <p class="date"> {{result.release_date}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
