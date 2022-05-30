@@ -5,16 +5,19 @@ import {MoviesRoutingModule} from './movies-routing.module';
 import {MovieListComponent} from "./movie-list/movie-list.component";
 import {MovieService} from "./services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
+import { MovieListCardComponent } from './movie-list-card/movie-list-card.component';
 
 
 @NgModule({
   declarations: [
     MovieListComponent,
+    MovieListCardComponent,
   ],
   imports: [
     CommonModule,
     MoviesRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   exports: [
     MovieListComponent

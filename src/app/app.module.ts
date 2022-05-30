@@ -4,11 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { HeaderComponent } from './components/header/header.component';
-import { LayoutComponent } from './main-layout/layout/layout.component';
 import {RouterModule} from "@angular/router";
-import {MoviesModule} from "./movies/movies.module";
-import {MainLayoutModule} from "./main-layout/main-layout.module";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
+import {GenreService} from "./genre-badge/service/genre.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +19,7 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
     RouterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GenreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

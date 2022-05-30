@@ -1,12 +1,21 @@
-<div class="filmList">
-  <div *ngFor="let result of results">
-    <div class="filmBox">
-      <img class="imageBox" src="{{urls}}{{result.poster_path}}">
-      <div>
-        <p class="titleFilm">{{result.original_title}}</p>
-        <p class="date"> {{result.release_date}}</p>
-      </div>
-    </div>
+<div class="container">
+  <div>
+    menu
+  </div>
+  <div class="filmList">
+    <div *ngFor="let result of results">
+      <a routerLink="{{result.id}}">
 
+        <div class="filmBox">
+          <img class="imageBox" src="{{urls}}{{result.poster_path}}" alt="photoFilm">
+          <div>
+            <p class="titleFilm">{{result.original_title}}</p>
+            <p class="date"> {{result.release_date}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
+
+

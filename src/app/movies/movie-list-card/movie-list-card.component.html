@@ -1,0 +1,9 @@
+<div class="detailFilm">
+  <div>{{movieDetail.original_title}}</div>
+  <h2>{{movieDetail.original_title}}</h2>
+
+  <img class="backgroundDetail" src="{{urls}}{{movieDetail.backdrop_path}}" alt="photoFilm">
+  <h3>{{movieDetail.tagline}}</h3>
+  <h5 *ngFor="let genre of movieDetail.genres">{{genre.name}}</h5>
+  <h5>{{movieDetail.overview}}</h5>
+  <h5>{{movieDetail.release_date}}</h5></div>

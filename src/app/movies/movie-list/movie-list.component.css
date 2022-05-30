@@ -22,9 +22,13 @@
   filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.36));
   border-radius: 7px;
 }
+a{
+  text-decoration: none;
+}
 .filmList{
   display: flex;
   flex-wrap: wrap;
+  width: 65%;
 }
 .date{
   width: 60px;
@@ -35,4 +39,9 @@
   font-size: 11px;
   line-height: 13px;
   color: #ddee1d;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
 }

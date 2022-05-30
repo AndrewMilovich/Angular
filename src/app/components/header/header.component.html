@@ -3,10 +3,8 @@
   <ul>
     <li><a routerLink="movies">Home</a></li>
     <li><a routerLink="genre">Genre</a>
-      <ul>
-        <li><a href="#">Themes</a></li>
-        <li><a href="#">Plugins</a></li>
-        <li><a href="#">Tutorials</a></li>
+      <ul >
+        <li *ngFor="let g of genres"><a href="#">{{g.name}}</a></li>
       </ul>
     </li>
     <li><a href="#">Contact</a></li>

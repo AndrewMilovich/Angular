@@ -13,6 +13,7 @@ export class MovieListComponent implements OnInit {
   results: IResults[]
   urls: string;
 
+
   constructor(private movieService: MovieService) {
   }
 
