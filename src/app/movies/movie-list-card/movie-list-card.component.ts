@@ -13,15 +13,15 @@ export class MovieListCardComponent implements OnInit {
   movieDetail: IMovieDetailInterface
   urls: string;
 
-  constructor(private moviesService: MovieService,private activatedRoute:ActivatedRoute) {
+  constructor(private moviesService: MovieService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({id}) => {
-      this.moviesService.getMovieById(id).subscribe(value => console.log(this.movieDetail = value));
-    });
-    this.urls=urls.image
-
+    this.activatedRoute.data.subscribe(({movieListCard}) =>
+      this.movieDetail = movieListCard
+    );
+    this.urls = urls.image
+    // this.activatedRouted.data.subscribe(({commentDetail}) => this.commentDetails = commentDetail)
   }
 
 }

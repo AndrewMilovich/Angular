@@ -7,18 +7,20 @@ import { HeaderComponent } from './components/header/header.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {GenreService} from "./genre-badge/service/genre.service";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [GenreService],
   bootstrap: [AppComponent]
 })

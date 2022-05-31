@@ -1,7 +1,7 @@
 export interface IMovie {
-  page?: number,
-  results?: IResults[],
-  total_pages?: number,
+  page: number,
+  results: IResults[],
+  total_pages: number,
 }
 
 export interface IResults {
@@ -10,7 +10,7 @@ export interface IResults {
   genre_ids?: number[],
   id?: number,
   original_language?: string,
-  original_title?: string,
+  original_title: string,
   overview?: string,
   popularity?: number,
   poster_path?: string,

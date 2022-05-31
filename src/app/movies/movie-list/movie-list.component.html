@@ -1,9 +1,16 @@
 <div class="container">
   <div>
     menu
+    <ul>
+      <li>Home</li>
+      <li>Popular</li>
+      <li>Now Playing</li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
   <div class="filmList">
-    <div *ngFor="let result of results">
+    <div *ngFor="let result of movieList">
       <a routerLink="{{result.id}}">
 
         <div class="filmBox">
@@ -17,5 +24,9 @@
     </div>
   </div>
 </div>
-
-
+<div class="pagination">
+  <table>
+    <tr *ngFor="let r  of movieList | paginate: { itemsPerPage: 20, currentPage: currentPage, totalItems: total }"></tr>
+  </table>
+  <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+</div>

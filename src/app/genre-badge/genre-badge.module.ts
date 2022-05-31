@@ -4,15 +4,17 @@ import {CommonModule} from '@angular/common';
 import {GenreBadgeRoutingModule} from './genre-badge-routing.module';
 import {GenresComponent} from './genres/genres.component';
 import {GenreService} from "./service/genre.service";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
   declarations: [
-    GenresComponent
+    GenresComponent,
   ],
   imports: [
     CommonModule,
-    GenreBadgeRoutingModule
+    GenreBadgeRoutingModule,
+    NgxPaginationModule
   ], providers: [
     GenreService
   ]

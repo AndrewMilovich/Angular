@@ -6,6 +6,7 @@ import {MovieListComponent} from "./movie-list/movie-list.component";
 import {MovieService} from "./services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
 import { MovieListCardComponent } from './movie-list-card/movie-list-card.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { MovieListCardComponent } from './movie-list-card/movie-list-card.compon
     CommonModule,
     MoviesRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
 
   ],
   exports: [
