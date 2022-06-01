@@ -5,16 +5,18 @@ import {GenreBadgeRoutingModule} from './genre-badge-routing.module';
 import {GenresComponent} from './genres/genres.component';
 import {GenreService} from "./service/genre.service";
 import {NgxPaginationModule} from "ngx-pagination";
+import { GenreComponent } from './genre/genre.component';
 
 
 @NgModule({
   declarations: [
     GenresComponent,
+    GenreComponent,
   ],
   imports: [
     CommonModule,
     GenreBadgeRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ], providers: [
     GenreService
   ]

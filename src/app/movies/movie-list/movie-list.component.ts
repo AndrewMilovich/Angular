@@ -2,8 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MovieService} from "../services/movie.service";
 import {IMovie, IResults} from "../../interfaces/movies";
 import {urls} from "../../constants";
-import {DataService} from "../services/data.service";
+// import {DataService} from "../services/data.service";
 import {ActivatedRoute} from "@angular/router";
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'app-movie-list',
@@ -14,31 +15,19 @@ export class MovieListComponent implements OnInit {
 
   movieList: IResults[]
   urls: string;
-
   genreId: string
-
   currentPage: number;
   total: number;
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute, private dataService: DataService) {
+  constructor(private movieService: MovieService, private route: ActivatedRoute,private dataService:DataService) {
 
   }
 
   ngOnInit(): void {
-    this.getFilms()
+    this.getDataFilm()
     this.urls = urls.image
   }
 
- getGenreFilm(){
-   this.route.params.subscribe(({id}) => {
-       this.movieService.getAllFilms(this.currentPage, id).subscribe((value) => {
-         this.movieList = value.results;
-         this.currentPage = value.page
-         this.total = value.total_pages
-       })
-     }
-   )
- }
 
 
   getDataFilm(){
@@ -50,19 +39,31 @@ export class MovieListComponent implements OnInit {
     )
   }
 
-  getFilms() {
-    this.movieService.getAllFilms(this.currentPage, '').subscribe((value) => {
-      this.movieList = value.results;
-      this.currentPage = value.page
-      this.total = value.total_pages
-
-    })
-  }
-
-
 
   pageChangeEvent(event: number) {
     this.currentPage = event;
-    this.getFilms()
+    this.movieService.getAllFilms(this.currentPage,18).subscribe(value => this.dataService.storage.next(value))
   }
 }
+
+
+
+// getFilms() {
+//   this.movieService.getAllFilms(this.currentPage, 18).subscribe((value) => {
+//     this.movieList = value.results;
+//     this.currentPage = value.page
+//     this.total = value.total_pages
+//
+//   })
+// }
+//
+// getGenreFilm() {
+//   this.route.params.subscribe(({id}) => {
+//       this.movieService.getAllFilms(this.currentPage, 18).subscribe((value) => {
+//         this.movieList = value.results;
+//         this.currentPage = value.page
+//         this.total = value.total_pages
+//       })
+//     }
+//   )
+// }

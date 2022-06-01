@@ -21,7 +21,6 @@ export class MovieListCardComponent implements OnInit {
       this.movieDetail = movieListCard
     );
     this.urls = urls.image
-    // this.activatedRouted.data.subscribe(({commentDetail}) => this.commentDetails = commentDetail)
   }
 
 }

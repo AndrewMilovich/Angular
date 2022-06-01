@@ -19,7 +19,6 @@ import {NgxPaginationModule} from "ngx-pagination";
     MoviesRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-
   ],
   exports: [
     MovieListComponent

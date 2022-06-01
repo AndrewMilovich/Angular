@@ -6,13 +6,16 @@ import {MovieListCardResolver} from "../movies/movie-list-card/service/resolvers
 
 const routes: Routes = [
   {
-    path: '', component: GenresComponent, children: [
-      {
-        path: ':id', component: GenresComponent
-      }]
+    path: '', component: GenresComponent
   },
-  {path: 'film/:id', component: MovieListCardComponent,
-    resolve: {movieListCard: MovieListCardResolver}}
+  {
+    path: ':id', component: GenresComponent
+
+  },
+  {
+    path: 'film/:id', component: MovieListCardComponent,
+    resolve: {movieListCard: MovieListCardResolver}
+  }
 ];
 
 @NgModule({
