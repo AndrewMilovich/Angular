@@ -7,6 +7,8 @@ import {MovieService} from "./services/movie.service";
 import {HttpClientModule} from "@angular/common/http";
 import { MovieListCardComponent } from './movie-list-card/movie-list-card.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TestCarouselModule} from "../carousel/carousel.module";
 
 
 @NgModule({
@@ -19,6 +21,9 @@ import {NgxPaginationModule} from "ngx-pagination";
     MoviesRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
+    FormsModule,
+    TestCarouselModule,
+    ReactiveFormsModule
   ],
   exports: [
     MovieListComponent

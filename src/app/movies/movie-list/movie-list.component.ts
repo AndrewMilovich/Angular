@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MovieService} from "../services/movie.service";
-import {IMovie, IResults} from "../../interfaces/movies";
+import {IResults} from "../../interfaces/movies";
 import {urls} from "../../constants";
-// import {DataService} from "../services/data.service";
 import {ActivatedRoute} from "@angular/router";
 import {DataService} from "../services/data.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-movie-list',
@@ -15,55 +15,58 @@ export class MovieListComponent implements OnInit {
 
   movieList: IResults[]
   urls: string;
-  genreId: string
   currentPage: number;
   total: number;
+  searchString = ''
+  form: FormGroup;
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute,private dataService:DataService) {
-
+  constructor(private movieService: MovieService, private route: ActivatedRoute, private dataService: DataService) {
   }
 
   ngOnInit(): void {
+    this._createForm()
     this.getDataFilm()
     this.urls = urls.image
   }
 
 
-
-  getDataFilm(){
+  getDataFilm() {
     this.dataService.storage.subscribe((value) => {
         this.movieList = value.results
-     this.currentPage = value.page
-      this.total = value.total_pages
+        this.currentPage = value.page
+        this.total = value.total_pages
       }
     )
   }
 
+  getFilmByName() {
+    let {searchString} = this.form.getRawValue();
+    this.searchString = searchString
+    this.movieService.getFilmByName(searchString, this.currentPage).subscribe((value) => {
+      this.dataService.storage.next(value)
+    })
+    this.form.reset()
+  }
+
+  _createForm(): void {
+    this.form = new FormGroup({
+      searchString: new FormControl(null),
+    })
+  }
 
   pageChangeEvent(event: number) {
     this.currentPage = event;
-    this.movieService.getAllFilms(this.currentPage,18).subscribe(value => this.dataService.storage.next(value))
+    this.dataService.currentPage = event
+
+    if (this.searchString === '') {
+      this.movieService.getAllFilms(event, '').subscribe(value => {
+        this.dataService.storage.next(value)
+      })
+    }
+    this.movieService.getFilmByName(this.searchString, event).subscribe((value) =>
+      this.dataService.storage.next(value)
+    )
   }
+
+
 }
-
-
-
-// getFilms() {
-//   this.movieService.getAllFilms(this.currentPage, 18).subscribe((value) => {
-//     this.movieList = value.results;
-//     this.currentPage = value.page
-//     this.total = value.total_pages
-//
-//   })
-// }
-//
-// getGenreFilm() {
-//   this.route.params.subscribe(({id}) => {
-//       this.movieService.getAllFilms(this.currentPage, 18).subscribe((value) => {
-//         this.movieList = value.results;
-//         this.currentPage = value.page
-//         this.total = value.total_pages
-//       })
-//     }
-//   )
-// }

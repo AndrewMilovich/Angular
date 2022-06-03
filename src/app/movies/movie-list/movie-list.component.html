@@ -1,26 +1,36 @@
-<div class="container">
-  <div>
-    menu
-    <ul>
+<div class="movieList">
+  <div >
+    <ul class="menu">
       <li>Home</li>
       <li>Popular</li>
       <li>Now Playing</li>
-      <li></li>
-      <li></li>
     </ul>
   </div>
-  <div class="filmList">
-    <div *ngFor="let result of movieList">
-      <a routerLink="{{result.id}}">
 
-        <div class="filmBox">
-          <img class="imageBox" src="{{urls}}{{result.poster_path}}" alt="photoFilm">
-          <div>
-            <p class="titleFilm">{{result.original_title}}</p>
-            <p class="date"> {{result.release_date}}</p>
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 30px">
+    <div>
+      <form  class="example" (submit)="getFilmByName()" [formGroup]="form">
+        <input formControlName="searchString" class="inputSearch" type="text" placeholder="Search">
+      </form>
+    </div>
+        <app-carousel class="carousel-slide">
+
+
+        </app-carousel>
+
+    <div class="filmList">
+      <div *ngFor="let result of movieList">
+        <a routerLink="{{result.id}}">
+
+          <div class="filmBox">
+            <img class="imageBox" src="{{urls}}{{result.poster_path}}" alt="photoFilm">
+            <div>
+              <p class="titleFilm">{{result.original_title}}</p>
+              <p class="date"> {{result.release_date}}</p>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </div>

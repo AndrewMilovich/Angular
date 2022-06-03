@@ -1,35 +1,23 @@
-
 <div style="display: flex">
   <div>
-    <div *ngFor="let g of genres">
+    <div  *ngFor="let g of genres">
       <ul>
-        <a routerLink="{{g.id}}">
-          <li style="text-decoration-color: #FFFFFF">{{g.name}}</li>
-        </a>
+        <button (click)="withGenre(g.id)">
+          <div class="nameGenre">{{g.name}}</div>
+        </button>
       </ul>
     </div>
   </div>
 
-  <div class="filmList">
-    <div *ngFor="let result of movieList">
-      <a  routerLink="film/{{result.id}}">
+  <app-genre></app-genre>
+</div>
 
-        <div class="filmBox">
-          <img class="imageBox" src="{{urls}}{{result.poster_path}}" alt="photoFilm">
-          <div>
-            <p class="titleFilm">{{result.original_title}}</p>
-            <p class="date"> {{result.release_date}}</p>
-          </div>
-        </div>
-      </a>
+    <div class="pagination">
+      <table>
+        <tr
+          *ngFor="let r  of movieList | paginate: { itemsPerPage: 20, currentPage: currentPage , totalItems: total }"></tr>
+      </table>
+      <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
     </div>
-  </div>
-</div>
 
-<div class="pagination">
-  <table>
-    <tr *ngFor="let r  of movieList | paginate: { itemsPerPage: 20, currentPage: currentPage, totalItems: total }"></tr>
-  </table>
-  <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
-</div>
 

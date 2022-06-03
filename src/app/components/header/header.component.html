@@ -1,20 +1,14 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="header">
-  <a routerLink="main">
+  <a routerLink="movies">
     <div class="logo">IMOVIE</div>
   </a>
   <ul>
     <li><a routerLink="movies">Home</a></li>
-    <li><a routerLink="genre">Genre</a>
-      <ul>
-        <li *ngFor="let g of genres"><a routerLink="genre/{{g.id}}">{{g.name}}</a></li>
-      </ul>
-    </li>
+    <li><a routerLink="genre">Genre</a></li>
     <li><a href="#">Contact</a></li>
     <li><a href="#">About</a></li>
   </ul>
-  <div>
-    <form [formGroup]="form" >
-      <input formControlName="searchString" class="inputSearch" type="text" placeholder="Search">
-    </form>
-  </div>
+  <button (click)="changeTheme()">hello</button>
+
 </div>

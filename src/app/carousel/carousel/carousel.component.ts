@@ -1,0 +1,29 @@
+import {Component, OnInit} from '@angular/core';
+import {DataService} from "../../movies/services/data.service";
+import {IResults} from "../../interfaces/movies";
+import {urls} from "../../constants";
+
+@Component({
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.css']
+})
+export class CarouselComponent implements OnInit {
+
+  constructor(private dataService: DataService) {
+  }
+
+  movieList: IResults[]
+  urls: string
+
+  ngOnInit(): void {
+    this.GetFilms()
+    this.urls=urls.image
+  }
+
+  GetFilms() {
+    this.dataService.storage.subscribe(value => this.movieList = value.results)
+  }
+
+
+}

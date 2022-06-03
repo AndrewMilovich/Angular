@@ -28,9 +28,7 @@ a{
 .filmList{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
-
 .date{
   width: 60px;
   height: 11px;
@@ -39,35 +37,5 @@ a{
   font-weight: 700;
   font-size: 11px;
   line-height: 13px;
-  color: #ddee1d;
-}
-
-.container{
-  display: flex;
-  justify-content: space-between;
-}
-.pagination{
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-button{
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
-
-.nameGenre{
-  text-decoration-color: #FFFFFF;
-  width: 240px;
-  font-family: 'Montserrat', cursive;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
   color: #ddee1d;
 }

@@ -1,0 +1,15 @@
+
+<div class="filmList">
+  <div *ngFor="let result of movieList">
+    <a  routerLink="film/{{result.id}}">
+
+      <div class="filmBox">
+        <div>
+          <img class="imageBox" src="{{urls}}{{result.poster_path}}" alt="photoFilm">
+          <p class="titleFilm">{{result.original_title}}</p>
+          <p class="date"> {{result.release_date}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

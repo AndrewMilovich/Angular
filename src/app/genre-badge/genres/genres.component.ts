@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {GenreService} from "../service/genre.service";
 import {IGenre} from "../../interfaces/genre";
 import {MovieService} from "../../movies/services/movie.service";
-import { IResults} from "../../interfaces/movies";
+import {IResults} from "../../interfaces/movies";
 import {urls} from "../../constants";
 import {ActivatedRoute} from "@angular/router";
+import {DataService} from "../../movies/services/data.service";
 
 @Component({
   selector: 'app-genres',
@@ -17,38 +18,43 @@ export class GenresComponent implements OnInit {
   urls: string;
   currentPage: number;
   total: number;
-  id:number
 
-  constructor(private genreService: GenreService, private movieService: MovieService, private route: ActivatedRoute) {
+  constructor(private genreService: GenreService, private movieService: MovieService,
+              private route: ActivatedRoute, private dataService: DataService) {
 
   }
 
   ngOnInit(): void {
     this.getGenre()
-    this.getGenreFilm()
     this.urls = urls.image
-
+    this.dataService.storage.subscribe(value => {
+      this.movieList = value.results
+      this.total = value.total_pages
+    })
   }
 
   getGenre() {
-    this.genreService.getAllGenre().subscribe((value)=> {
-     this.genres = value.genres;
+    this.genreService.getAllGenre().subscribe((value) => {
+        this.genres = value.genres;
       }
     )
   }
 
-  getGenreFilm() {
-    this.route.url.subscribe(value => {
-      this.movieService.getAllFilms(this.currentPage, 18).subscribe((value) => {
-        this.movieList = value.results;
-        this.currentPage = value.page
-        this.total = value.total_pages
-      })
-    })
-  }
-
   pageChangeEvent(event: number) {
     this.currentPage = event;
-    this.getGenreFilm();
+    this.dataService.currentPage = event;
+    this.dataService.currentPage = 1
+    this.movieService.getAllFilms(event, this.dataService.genreId).subscribe(value => {
+        this.dataService.storage.next(value)
+      }
+    )
+  }
+
+  withGenre(id: string) {
+    this.dataService.genreId = id
+    this.currentPage = 1
+    this.movieService.getAllFilms(this.dataService.currentPage, id).subscribe(value => {
+      this.dataService.storage.next(value)
+    })
   }
 }

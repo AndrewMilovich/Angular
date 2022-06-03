@@ -9,8 +9,7 @@ import {IMovie} from "../../interfaces/movies";
 })
 export class DataService {
   storage = new BehaviorSubject<IMovie>({page: 1, total_pages: 0, results: []})
-  genres = [];
-  genre = this.genres
+  genreId: string
   currentPage: number
 
   constructor(private movieService: MovieService) {
@@ -18,7 +17,7 @@ export class DataService {
   }
 
   setStorage() {
-    this.movieService.getAllFilms(this.currentPage, 18).subscribe(value => {
+    this.movieService.getAllFilms(this.currentPage, this.genreId).subscribe(value => {
         this.storage.next(value)
         this.currentPage = value.page
       }

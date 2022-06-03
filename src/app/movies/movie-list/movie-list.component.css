@@ -28,7 +28,7 @@ a{
 .filmList{
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 85%;
 }
 .date{
   width: 60px;
@@ -40,8 +40,21 @@ a{
   line-height: 13px;
   color: #ddee1d;
 }
-
-.container{
+li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-decoration-color: #FFFFFF;
+  width: 100px;
+  font-family: 'Montserrat', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ddee1d;
+}
+.movieList{
   display: flex;
   justify-content: space-between;
 }
@@ -49,4 +62,23 @@ a{
   display: flex;
   justify-content: center;
   margin-top: 30px;
+}
+.carousel-slide{
+
+}
+
+
+.inputSearch{
+  width: 324px;
+  height: 37px;
+  left: 821px;
+  top: 29px;
+  background: linear-gradient(90deg, #4d4646 17.76%, rgba(0.687449,0, 0, 0) 41.44%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 18px;
+  border-color: black;
+}
+.carouser-indicators button
+{
+opacity: 40%;
+  width: 230px;
 }
