@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CarouselComponent} from './carousel/carousel.component';
 import {CarouselModule} from "ngx-bootstrap/carousel";
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -9,10 +10,11 @@ import {CarouselModule} from "ngx-bootstrap/carousel";
     CarouselComponent
   ],
 
-  imports: [
-    CommonModule,
-    CarouselModule
-  ],
+    imports: [
+        CommonModule,
+        CarouselModule,
+        RouterModule
+    ],
   exports: [
     CarouselComponent
   ],

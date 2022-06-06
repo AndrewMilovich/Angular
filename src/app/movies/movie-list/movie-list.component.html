@@ -8,15 +8,13 @@
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center; margin-top: 30px">
+
     <div>
       <form  class="example" (submit)="getFilmByName()" [formGroup]="form">
         <input formControlName="searchString" class="inputSearch" type="text" placeholder="Search">
       </form>
     </div>
-        <app-carousel class="carousel-slide">
-
-
-        </app-carousel>
+        <app-carousel class="carousel-slide"></app-carousel>
 
     <div class="filmList">
       <div *ngFor="let result of movieList">

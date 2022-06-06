@@ -18,7 +18,7 @@
   color: #FFFFFF;
 }
 .imageBox {
-  height: 250px;
+  height: 200px;
   filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.36));
   border-radius: 7px;
 }
@@ -28,8 +28,11 @@ a{
 .filmList{
   display: flex;
   flex-wrap: wrap;
-  width: 85%;
+  position: relative;
+  width: 100%;
+  margin-top: 400px;
 }
+
 .date{
   width: 60px;
   height: 11px;
@@ -55,6 +58,8 @@ li{
   color: #ddee1d;
 }
 .movieList{
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
 }
@@ -64,21 +69,23 @@ li{
   margin-top: 30px;
 }
 .carousel-slide{
-
+position: absolute;
+  top: 0;
+  right: 0;
 }
 
-
 .inputSearch{
-  width: 324px;
+  position: absolute;
+  z-index: 1;
+  width: 400px;
   height: 37px;
-  left: 821px;
-  top: 29px;
   background: linear-gradient(90deg, #4d4646 17.76%, rgba(0.687449,0, 0, 0) 41.44%, rgba(0, 0, 0, 0) 100%);
   border-radius: 18px;
-  border-color: black;
+  border-color: white;
+  right: 30px;
 }
 .carouser-indicators button
 {
-opacity: 40%;
-  width: 230px;
+opacity: 30%;
+  width: 20px;
 }

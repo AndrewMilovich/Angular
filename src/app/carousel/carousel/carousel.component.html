@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css" />
-<carousel>
+<carousel [itemsPerSlide]="itemsPerSlide" >
   <div *ngFor="let result of movieList">
-  <slide>
-    <img  class="carousel-img" src="{{urls}}{{result.poster_path}}">
+  <slide >
+    <a routerLink="{{result.id}}"><img  class="carousel-img" src="{{urls}}{{result.poster_path}}"></a>
   </slide>
+
 </div>
 </carousel>
